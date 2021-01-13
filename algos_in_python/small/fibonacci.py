@@ -1,4 +1,5 @@
 from typing import Dict
+from functools import lru_cache
 
 # Multiple solutions to calculate the fibonacci sequence
 
@@ -18,6 +19,15 @@ def fib2(n :int) -> int:
         memory[n] = fib2(n-1) + fib2(n-2) # Memoization
     return memory[n]
 
+# Automated Memoization -- Same result like fib2() with less effort using lru_cache
+@lru_cache(maxsize=None)
+def fib3(n: int) -> int:
+    if n < 2:
+        return n
+    return fib3(n-1) + fib3(n-2)
+
+
 if __name__ == '__main__':
     print(fib1(5))
     print(fib2(20))
+    print(fib3(30))
