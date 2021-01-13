@@ -19,6 +19,7 @@ def fib2(n :int) -> int:
         memory[n] = fib2(n-1) + fib2(n-2) # Memoization
     return memory[n]
 
+
 # Automated Memoization -- Same result like fib2() with less effort using lru_cache
 @lru_cache(maxsize=None)
 def fib3(n: int) -> int:
@@ -27,7 +28,18 @@ def fib3(n: int) -> int:
     return fib3(n-1) + fib3(n-2)
 
 
+# Iterative solution -- Really performant & simple
+def fib4(n: int) -> int:
+    if n == 0: return n
+    last: int = 0
+    next: int  = 1
+    for _ in range(1,n):
+        last, next = next, last + next
+    return next
+
+
 if __name__ == '__main__':
     print(fib1(5))
     print(fib2(20))
     print(fib3(30))
+    print(fib4(50))
