@@ -1,5 +1,6 @@
 from typing import Dict
 from functools import lru_cache
+from typing import Generator
 
 # Multiple solutions to calculate the fibonacci sequence
 
@@ -29,6 +30,7 @@ def fib3(n: int) -> int:
 
 
 # Iterative solution -- Really performant & simple
+# For loop executes n - 1 times max.
 def fib4(n: int) -> int:
     if n == 0: return n
     last: int = 0
@@ -38,8 +40,21 @@ def fib4(n: int) -> int:
     return next
 
 
+# Generator -- Return the whole list of fibonacci numbers until the given index -- Uses iteration
+def fib5(n: int) -> Generator[int, None, None]:
+    yield 0
+    if n > 0: yield 1
+    last: int = 0
+    next: int = 1
+    for _ in range(1,n):
+        last, next = next, last + next
+        yield next
+
+
 if __name__ == '__main__':
     print(fib1(5))
     print(fib2(20))
     print(fib3(30))
     print(fib4(50))
+    for i in fib5(50):
+        print(i)
