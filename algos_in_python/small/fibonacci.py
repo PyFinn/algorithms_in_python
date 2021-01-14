@@ -52,9 +52,10 @@ def fib5(n: int) -> Generator[int, None, None]:
 
 
 if __name__ == '__main__':
-    print(fib1(5))
-    print(fib2(20))
-    print(fib3(30))
-    print(fib4(50))
+    print('The fifth Fibonacci number is {}'.format(fib1(5)))
+    print('The twentieth Fibonacci number is {}'.format(fib2(20)))
+    print('The thirtieth Fibonacci number is {}'.format(fib3(30)))
+    print('The fiftieth Fibonacci number is {}'.format(fib4(50)))
+    print('The first fifty Fibonacci numbers:')
     for i in fib5(50):
         print(i)
