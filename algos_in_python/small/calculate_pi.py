@@ -1,3 +1,4 @@
+import json
 def calculate_pi(n_terms: int) -> float:
     numerator: float = 4.0
     denominator:float = 1.0
@@ -11,4 +12,4 @@ def calculate_pi(n_terms: int) -> float:
     return pi
 
 if __name__ == '__main__':
-    print(calculate_pi(100000))
+    print(calculate_pi(10000))
